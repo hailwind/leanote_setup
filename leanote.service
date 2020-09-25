@@ -1,0 +1,13 @@
+[Unit]
+Description=leanote
+After=mongod.service
+
+[Service]
+Type=simple
+User=leanote
+Group=leanote
+EnvironmentFile=-/etc/default/leanote
+ExecStart=/opt/leanote/bin/leanote-linux-amd64 -importPath github.com/leanote/leanote
+
+[Install]
+WantedBy=multi-user.target
